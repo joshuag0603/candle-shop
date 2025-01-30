@@ -1,39 +1,87 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import type { UserData } from "../interfaces/UserData";
-import auth from '../utils/auth';
+import { UserLogin } from "../interface/UserLogin";
 
 
 interface UserSettingProps {
-    users: {
-        id: number;
-        username: string;
-        email: string;
-        address: string;
-        password: string;
-        profileImg: string;
-    };
-    onSave: (updatedSettings: { username: string; email: string; address: string; password: string; profileImg: string;})
+    user: UserLogin;
+    onSave: (updatedSettings: UserLogin) => void;
 }
 
-// const UserList: React.FC<UserSettingProps> = ({ users }) => {
-//     return (
-//         <>
-//             <h2 className="pb-5">
-//                 Check out all your friends!
-//             </h2>
-//             {users && users.map((user) => (
-//                 <div className="row align-center mb-5" key={user.id}>
-//                     <div className="col-md-6">
-//                         <h3>{user.id}. {user.username}</h3>
-//                     </div>
-//                     <div className="col-md-6">
-//                         <h4><a href={`mailto:${user.email}`}>{user.email}</a></h4>
-//                     </div>
-//                 </div>
-//             ))}
-//         </>
-//     );
-// };
+const Setting: React.FC<UserSettingProps> = ({ user, onSave }) => {
+    const [settings, setSettings] = useState<UserLogin>(user);
 
-// export default UserList;
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setSettings((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        onSave(settings);
+    };
+
+    return (
+        <div>
+            <h2>User Settings</h2>
+            <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                    <label>Username:</label>
+                    <input
+                        type="text"
+                        name="username"
+                        value={settings.username}
+                        onChange={handleChange}
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <label>Email:</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={settings.email}
+                        onChange={handleChange}
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <label>Address:</label>
+                    <input
+                        type="text"
+                        name="address"
+                        value={settings.address}
+                        onChange={handleChange}
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <label>Password:</label>
+                    <input
+                        type="password"
+                        name="password"
+                        value={settings.password}
+                        onChange={handleChange}
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <label>Profile Image URL:</label>
+                    <input
+                        type="text"
+                        name="profileImg"
+                        value={settings.profileImg}
+                        onChange={handleChange}
+                        className="form-control"
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    );
+};
+
+export default Setting;
