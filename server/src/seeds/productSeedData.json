@@ -1,0 +1,5 @@
+[
+    {"productname": "Candle 1", "description": "Okay Candle", "price": 5, "quantity": 10},
+    {"productname": "Candle 2", "description": "Good Candle", "price": 10, "quantity": 10},
+    {"productname": "Candle 3", "description": "Great Candle", "price": 20, "quantity": 10}
+]
