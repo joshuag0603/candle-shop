@@ -2,6 +2,8 @@ import { Model, Sequelize, DataTypes, InferAttributes, InferCreationAttributes, 
 
 export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
     declare id: CreationOptional<number>;
+    declare firstname: string;
+    declare lastname:string;
     declare email: string;
     declare password: string;
     declare admin: number;
@@ -15,6 +17,14 @@ export function UserFactory(sequelize: Sequelize) {
               type: DataTypes.INTEGER,
               autoIncrement: true,
               primaryKey: true,
+            },
+            firstname: {
+              type: DataTypes.STRING,
+              allowNull: false,
+            },
+            lastname: {
+              type: DataTypes.STRING,
+              allowNull: false,
             },
             email: {
               type: DataTypes.STRING,
