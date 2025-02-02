@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { Cart } from '../../models/cart'; // Add cart model
-import { CartItem } from ''; // Add Cartitem model
+import { CartItem } from '../../models/cartItem'; // Add Cartitem model
 import { Product } from '../../models/products'; //add product model
 
 const router = Router();
