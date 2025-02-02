@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { Cart } from ''; // Add cart model
+import { Cart } from '../../models/cart'; // Add cart model
 import { CartItem } from ''; // Add Cartitem model
-import { Product } from ''; //add product model
+import { Product } from '../../models/products'; //add product model
 
 const router = Router();
 
