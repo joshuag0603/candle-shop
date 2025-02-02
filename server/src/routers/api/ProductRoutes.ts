@@ -1,5 +1,5 @@
 import {Router, Request, Response} from 'express';
-import {Product} from '..';
+import {Product} from '../../models/products';
 
 const router =Router();
 
@@ -36,8 +36,8 @@ router.get('/:id', async (req: Request, res: Response) => {
 //Post api/products *create new product
 router.post('/', async (req: Request, res: Response) => {
     try {
-      const { name, price, description } = req.body;
-      const newProduct = await Product.create({ name, price, description });
+      const { productname, price, description } = req.body;
+      const newProduct = await Product.create({ productname, price, description });
       res.status(201).json(newProduct);
     } catch (error) {
       console.error('Error creating product:', error);
@@ -48,14 +48,14 @@ router.post('/', async (req: Request, res: Response) => {
 //Put /api/products/:id *update existing product by id
   router.put('/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { name, price, description } = req.body;
+    const { productname, price, description } = req.body;
   
     try {
       const product = await Product.findByPk(id);
       if (!product) {
         return res.status(404).json({ error: 'Product not found' });
       }
-      await product.update({ name, price, description });
+      await product.update({ productname, price, description });
       res.json(product);
     } catch (error) {
       console.error('Error updating product:', error);
