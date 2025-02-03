@@ -1,5 +1,5 @@
 import React from 'react';
-import { contactInfo } from "../interface/contactInfo";
+import { contactInfo } from "../interface/contactInfo.tsx";
 
 interface ContactProps {
     contact: contactInfo;
