@@ -19,7 +19,7 @@ Cart.hasMany(CartItem, {
     as: 'products'
 });
 
-CartItem.hasOne(Product, {
+CartItem.hasMany(Product, {
     onDelete: 'CASCADE',
 });
 
