@@ -2,10 +2,14 @@ import { Model, Sequelize, DataTypes, InferAttributes, InferCreationAttributes, 
 
 import { Product } from './products';
 
+import { Cart } from './cart';
+
 export class CartItem extends Model<InferAttributes<CartItem>, InferCreationAttributes<CartItem>> {
     declare id: CreationOptional<number>;
     declare quantity: number;
+    declare productId: ForeignKey<Product['id']>;
     declare productname: ForeignKey<Product['productname']>;
+    declare cartId: ForeignKey<Cart['id']>;
 }
 
     export function CartItemFactory(sequelize: Sequelize) {
