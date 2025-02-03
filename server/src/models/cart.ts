@@ -1,7 +1,7 @@
 import { Model, Sequelize, DataTypes, InferAttributes, InferCreationAttributes, CreationOptional, ForeignKey} from 'sequelize';
 
-import { CartItem } from './cartItem';
-import { User } from './users2';
+import { CartItem } from './CartItem.js';
+import { User } from './Users2.js';
 
 export class Cart extends Model<InferAttributes<Cart>, InferCreationAttributes<Cart>> {
     declare id: CreationOptional<number>;

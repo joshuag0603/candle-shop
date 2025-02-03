@@ -1,8 +1,8 @@
-import sequelize from "../config/connection";
-import { CartFactory } from "./cart";
-import { ProductFactory } from "./products";
-import { UserFactory } from "./users2";
-import { CartItemFactory } from "./cartItem";
+import sequelize from "../config/connection.js";
+import { CartFactory } from "./Cart.js";
+import { ProductFactory } from "./Products.js";
+import { UserFactory } from "./Users2.js";
+import { CartItemFactory } from "./CartItem";
 
 const Cart = CartFactory(sequelize);
 const Product = ProductFactory(sequelize);
@@ -35,6 +35,5 @@ CartItem.belongsTo(Cart, {
 Product.belongsTo(Cart, {
     onDelete: 'CASCADE',
 });
-
 
 export {Cart, Product, User, CartItem};
