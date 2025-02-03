@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../components/navbar";
 import PictureAndQuote from "../components/PictureQuote";
+import Contact from "../components/contact";
 import { ProductInfo } from "../interface/Products";
+import { contactInfo } from "../interface/contactInfo";
 
 const Home: React.FC = () => {
   const products: ProductInfo[] = [
@@ -33,6 +35,7 @@ const Home: React.FC = () => {
       price: 13,
       quantity: 15,
     },
+
     {
       id: "5",
       productName: "Hot Apple Pie",
@@ -76,6 +79,10 @@ const Home: React.FC = () => {
       quantity: 15,
     },
   ];
+  const [contact] = useState<contactInfo>({
+    email: "support@candleshop.com",
+    phoneNumber: "123-456-7890",
+  }); 
 
   return (
     <>
@@ -98,6 +105,7 @@ const Home: React.FC = () => {
           </li>
         ))}
       </ul>
+      <Contact contact={contact} />
     </>
   );
 };
