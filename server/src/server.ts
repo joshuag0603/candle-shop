@@ -11,6 +11,11 @@ import {Cart, Product, User } from './models/index.js'
 
 const app = express();
 
+app.get("/", async (_req, res) => {
+    const user = await User.findAll();
+    res.json(user);
+  });
+
 const PORT = process.env.PORT || 3001;
 
 

@@ -3,7 +3,7 @@ import { Model, Sequelize, DataTypes, InferAttributes, InferCreationAttributes, 
 
 export class Product extends Model<InferAttributes<Product>, InferCreationAttributes<Product>> {
     declare id: CreationOptional<number>;
-    declare productname: string;
+    declare productName: string;
     declare description: string;
     declare price: number;
     declare quantity: number;
@@ -17,12 +17,9 @@ export function ProductFactory(sequelize: Sequelize) {
               autoIncrement: true,
               primaryKey: true,
             },
-            productname: {
+            productName: {
               type: DataTypes.STRING,
               allowNull: false,
-              validate: {
-                  isEmail: true,
-              }
             },
             description: {
               type: DataTypes.STRING,
