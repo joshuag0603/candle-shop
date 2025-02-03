@@ -20,9 +20,6 @@ export function ProductFactory(sequelize: Sequelize) {
             productname: {
               type: DataTypes.STRING,
               allowNull: false,
-              validate: {
-                  isEmail: true,
-              }
             },
             description: {
               type: DataTypes.STRING,

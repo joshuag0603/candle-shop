@@ -6,8 +6,8 @@ import { User } from './users2';
 export class Cart extends Model<InferAttributes<Cart>, InferCreationAttributes<Cart>> {
     declare id: CreationOptional<number>;
     declare userId: ForeignKey<User['id']>;
-    declare productname: ForeignKey<CartItem['productname']>;
-    declare quantity: ForeignKey<CartItem['quantity']>;
+    // declare productname: ForeignKey<CartItem['productname']>;
+    // declare quantity: ForeignKey<CartItem['quantity']>;
 
 }
 

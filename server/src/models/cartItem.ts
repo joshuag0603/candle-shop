@@ -24,6 +24,16 @@ export class CartItem extends Model<InferAttributes<CartItem>, InferCreationAttr
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
+            cartId: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                field: 'cart_id',
+              },
+              productId: {
+                type: DataTypes.INTEGER,    
+                allowNull: false,
+                field: 'product_id',
+            },
         },
         {
             tableName: 'cartitems',

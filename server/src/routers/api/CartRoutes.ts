@@ -7,16 +7,18 @@ const router = Router();
 
 // GET /api/cart/:userId Retrieves the cart for a user.
 router.get('/:userId', async (req: Request, res: Response) => {
-  const { userId } = req.params;
+  const userIdNumber =parseInt(req.params.userId,10);
+
   try {
     let cart = await Cart.findOne({
-      where: { userId },
+      where: { userId: userIdNumber },
       include: [CartItem],
     });
 
-    if (!cart) {
-      cart = await Cart.create({ userId });
+    if (!cart){
+        cart =await Cart.create({userId:userIdNumber});
     }
+
 
     const cartWithProducts = await Cart.findByPk(cart.id, {
       include: [{
@@ -55,7 +57,7 @@ router.post('/:userId', async (req: Request, res: Response) => {
       // Create a new cart item
       const newItem = await CartItem.create({
         cartId: cart.id,
-        productId,
+        productname,
         quantity,
       });
       return res.status(201).json(newItem);
