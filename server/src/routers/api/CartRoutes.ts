@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { Cart } from '../../models/cart'; // Add cart model
-import { CartItem } from '../../models/cartItem'; // Add Cartitem model
-import { Product } from '../../models/products'; //add product model
+import { Cart } from '../../models/cart.js'; // Add cart model
+import { CartItem } from '../../models/cartItem.js'; // Add Cartitem model
+import { Product } from '../../models/products.js'; //add product model
 
 const router = Router();
 
@@ -27,27 +27,6 @@ router.get('/:userId', async (req: Request, res: Response) => {
       }],
     });
 
-    res.json(cartWithProducts);
-  } catch (error) {
-    console.error('Error fetching cart:', error);
-    res.status(500).json({ error: 'Server error fetching cart' });
-  }
-});
-
-//POST /api/cart/:userId Adds a product to the user's cart or updates quantity
-router.post('/:userId', async (req: Request, res: Response) => {
-  const { userId } = req.params;
-  const { productId, quantity = 1 } = req.body;
-
-  try {
-    // Find or create the cart for this user
-    const [cart] = await Cart.findOrCreate({ where: { userId } });
-
-    // Check if the product already exists in the cart
-    const existingItem = await CartItem.findOne({
-      where: { cartId: cart.id, productId },
-    });
-
     if (existingItem) {
       // Update quantity
       existingItem.quantity += quantity;
@@ -68,23 +47,23 @@ router.post('/:userId', async (req: Request, res: Response) => {
   }
 });
 
-//DELETE /api/cart/:userId/:cartItemId Removes a CartItem from the user's cart
+// //DELETE /api/cart/:userId/:cartItemId Removes a CartItem from the user's cart
 router.delete('/:userId/:cartItemId', async (req: Request, res: Response) => {
-  const { userId, cartItemId } = req.params;
+   const { userId, cartItemId } = req.params;
 
-  try {
-    // Verify the cart belongs to the user or that the cart item is in the user’s cart
-    const cartItem = await CartItem.findByPk(cartItemId);
-    if (!cartItem) {
-      return res.status(404).json({ error: 'Cart item not found' });
-    }
+   try {
+     // Verify the cart belongs to the user or that the cart item is in the user’s cart
+     const cartItem = await CartItem.findByPk(cartItemId);
+     if (!cartItem) {
+       return res.status(404).json({ error: 'Cart item not found' });
+     }
 
-    await cartItem.destroy();
-    res.status(204).send();
-  } catch (error) {
-    console.error('Error removing item from cart:', error);
-    res.status(500).json({ error: 'Server error removing item from cart' });
-  }
-});
+     await cartItem.destroy();
+     res.status(204).send();
+   } catch (error) {
+     console.error('Error removing item from cart:', error);
+     res.status(500).json({ error: 'Server error removing item from cart' });
+   }
+ });
 
-export default router;
+ export default router;
