@@ -1,8 +1,8 @@
 import sequelize from "../config/connection.js";
-import { CartFactory } from "./Cart.js";
-import { ProductFactory } from "./Products.js";
-import { UserFactory } from "./Users2.js";
-import { CartItemFactory } from "./CartItem.js";
+import { CartFactory } from "./cart.js";
+import { ProductFactory } from "./products.js";
+import { UserFactory } from "./users2.js";
+import { CartItemFactory } from "./cartItem.js";
 
 const Cart = CartFactory(sequelize);
 const Product = ProductFactory(sequelize);
