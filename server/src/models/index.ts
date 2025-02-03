@@ -1,7 +1,7 @@
-import sequelize from "../config/connection";
-import { CartFactory } from "./cart";
-import { ProductFactory } from "./products";
-import { UserFactory } from "./users2";
+import sequelize from "../config/connection.js";
+import { CartFactory } from "./Cart.js";
+import { ProductFactory } from "./Products.js";
+import { UserFactory } from "./Users2.js";
 
 const Cart = CartFactory(sequelize);
 const Product = ProductFactory(sequelize);
@@ -23,6 +23,6 @@ Cart.belongsTo(User, {
 
 Product.belongsTo(Cart, {
     onDelete: 'CASCADE',
-})
+});
 
 export {Cart, Product, User};
