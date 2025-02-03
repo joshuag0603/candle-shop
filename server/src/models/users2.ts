@@ -2,12 +2,12 @@ import { Model, Sequelize, DataTypes, InferAttributes, InferCreationAttributes, 
 
 export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
     declare id: CreationOptional<number>;
-    declare firstname: string;
-    declare lastname:string;
+    declare firstname?: string;
+    declare lastname?:string;
     declare email: string;
     declare password: string;
-    declare admin: number;
-    declare address: string;
+    declare admin?: number;
+    declare address?: string;
 }
 
 export function UserFactory(sequelize: Sequelize) {
