@@ -26,6 +26,8 @@
     "wait-on": "^7.2.0"
   },
   "dependencies": {
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.5",
     "styled-components": "^6.1.14"
   }
 }
