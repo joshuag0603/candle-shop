@@ -1,4 +1,4 @@
 export interface contactInfo {
   email: string | null;
-  phoneNumber: number | null;
+  phoneNumber: string | null;
 }
