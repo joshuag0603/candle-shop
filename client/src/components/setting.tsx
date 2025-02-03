@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserLogin } from "../interface/UserLogin.tsx";
-import stylesheet from "../stylesheets/settings.css";
+import "../stylesheets/settings.css";
 
 interface UserSettingProps {
     user: UserLogin;
