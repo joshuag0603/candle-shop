@@ -19,11 +19,19 @@ Cart.hasMany(CartItem, {
     as: 'products'
 });
 
+CartItem.hasOne(Product, {
+    onDelete: 'CASCADE',
+});
+
 Cart.belongsTo(User, {
     onDelete: 'CASCADE',
 });
 
 CartItem.belongsTo(Cart, {
+    onDelete: 'CASCADE',
+});
+
+Product.belongsTo(CartItem, {
     onDelete: 'CASCADE',
 });
 
