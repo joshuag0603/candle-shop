@@ -26,6 +26,7 @@
     "wait-on": "^7.2.0"
   },
   "dependencies": {
+    "react-router-dom": "^7.1.5",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.5",
     "styled-components": "^6.1.14"
