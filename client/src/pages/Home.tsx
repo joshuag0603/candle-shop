@@ -4,6 +4,7 @@ import PictureAndQuote from "../components/PictureQuote.js";
 // import Contact from "../components/contact.js";
 import { productInfo } from "../interface/ProductData.js";
 // import { contactInfo } from "../interface/contactInfo.js";
+import { Image } from 'semantic-ui-react'
 
 const Home: React.FC = () => {
   const products: productInfo[] = [
@@ -60,7 +61,7 @@ const Home: React.FC = () => {
         {products.map((product) => (
           <li key={product.id}>
             <h3>{product.productName}</h3>
-            <img src={product.image} alt={product.productName} />
+            <Image src={product.image} alt={product.productName} />
             <p>{product.description}</p>
             <p>Price: ${product.price.toFixed(2)}</p>
             <p>Stock: {product.quantity}</p>
