@@ -73,4 +73,4 @@ router.delete('/:userId/:cartItemId', async (req: Request, res: Response) => {
    }
  });
 
- export default router;
+ export {router as cartRouter};

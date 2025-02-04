@@ -1,7 +1,6 @@
 import { Model, Sequelize, DataTypes, InferAttributes, InferCreationAttributes, CreationOptional, ForeignKey} from 'sequelize';
 
 import { Product } from './products.js';
-
 import { Cart } from './cart.js';
 
 export class CartItem extends Model<InferAttributes<CartItem>, InferCreationAttributes<CartItem>> {
