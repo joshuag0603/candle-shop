@@ -4,6 +4,32 @@ import { CartItem } from '../../models/cartItem.js'; // Add Cartitem model
 
 const router = Router();
 
+router.get('/', async (_req: Request, res: Response) => {
+  try {
+      const carts = await Cart.findAll();
+      res.json(carts);
+  
+  }catch (error) {
+      console.error('Error fetching carts',error);
+      res.status(500).json({error:'Server error fetching carts'});
+  }
+  });
+
+router.get('/:userId', async (req: Request, res: Response) => {
+const userIdNumber =parseInt(req.params.userId,10);
+try {
+  const carts = await Cart.findAll({
+    where: { userId: userIdNumber },
+  });
+
+  return res.json(carts);
+} catch (error) {
+  console.error('Error fetching user carts',error);
+  return res.status(500).json({error:'Server error fetching user carts'});
+}
+});
+
+
 
 router.post('/:userId', async (req: Request, res: Response) => {
   const userIdNumber =parseInt(req.params.userId,10);
