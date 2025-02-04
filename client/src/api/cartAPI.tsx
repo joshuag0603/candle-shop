@@ -1,4 +1,5 @@
 import { cartItem } from "../interface/cartItem";
+import { productInfo } from "../interface/ProductData";
 
 const retrieveCartItems = async () => {
     try {
@@ -20,8 +21,7 @@ const retrieveCartItems = async () => {
     }
 }
 
-
-const displayCartItems = async (body: cartItem) => {
+const productCartItem = async (body: productInfo ) => {
     try {
         const response = await fetch('/api/cartItem', {
             method: 'POST',
@@ -39,9 +39,32 @@ const displayCartItems = async (body: cartItem) => {
         return data;
 
     } catch (err) {
-        console.log('Error from Tip Creation: ', err);
+        console.log('Error from Cart addition: ', err);
+        return Promise.reject ('Could not create add cart items');
+    }
+};
+
+const addCartItems = async (body: cartItem) => {
+    try {
+        const response = await fetch('/api/cartItem', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        }
+    ) 
+    const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error('Invalid API response, check network tab!');
+        }
+        return data;
+
+    } catch (err) {
+        console.log('Error from Cart addition: ', err);
         return Promise.reject ('Could not create add cart items');
     }
 }
 
-export { retrieveCartItems, displayCartItems};
+export { retrieveCartItems, addCartItems, productCartItem};
