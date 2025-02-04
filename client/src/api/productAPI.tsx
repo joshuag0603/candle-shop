@@ -1,4 +1,4 @@
-import {productData} from '../interface/ProductData';
+import {productInfo} from '../interface/ProductData';
 
 const retrieveProduct = async () => {
     try {
@@ -22,7 +22,7 @@ const retrieveProduct = async () => {
 
 }
 
-const addProduct = async (body: productData) => {
+const addProduct = async (body: productInfo) => {
     try {
       const response = await fetch(
         '/api/product/', {
