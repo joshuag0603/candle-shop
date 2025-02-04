@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { retrieveProduct } from "../api/productAPI"
-import type { productInfo } from "../interface/ProductData";
-import CandleCards from "../components/candlecards";
+import { retrieveProduct } from "../api/productAPI.js"
+import type { productInfo } from "../interface/ProductData.js";
+import CandleCards from "../components/candlecards.js";
 
 const ProductsPage = () => {
 

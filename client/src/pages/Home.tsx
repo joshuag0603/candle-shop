@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import NavBar from "../components/navbar";
-import PictureAndQuote from "../components/PictureQuote";
-import Contact from "../components/contact";
-import { productInfo } from "../interface/ProductData";
-import { contactInfo } from "../interface/contactInfo";
+import React from "react";
+import NavBar from "../components/navbar.js";
+import PictureAndQuote from "../components/PictureQuote.js";
+// import Contact from "../components/contact.js";
+import { productInfo } from "../interface/ProductData.js";
+// import { contactInfo } from "../interface/contactInfo.js";
 
 const Home: React.FC = () => {
   const products: productInfo[] = [
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
       productName: "Frasier Fir",
       description:
         "The gorgeous design on this candle and the fresh, woodsy scent of Frasier Fir bring memories of Christmas tree farms and snow flurries",
-      image: "./images/Frasier_Fir",
+      image: "./images/Frasier_Fir.jpg",
       price: 10.99,
       quantity: 10,
     },
@@ -44,10 +44,6 @@ const Home: React.FC = () => {
       quantity: 10,
     },
   ];
-  const [contact] = useState<contactInfo>({
-    email: "support@candleshop.com",
-    phoneNumber: "123-456-7890",
-  });
 
   return (
     <>
@@ -64,14 +60,13 @@ const Home: React.FC = () => {
         {products.map((product) => (
           <li key={product.id}>
             <h3>{product.productName}</h3>
-            <img> {product.image}</img>
+            <img src={product.image} alt={product.productName} />
             <p>{product.description}</p>
             <p>Price: ${product.price.toFixed(2)}</p>
             <p>Stock: {product.quantity}</p>
           </li>
         ))}
       </ul>
-      <Contact contact={contact} />
     </>
   );
 };
