@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       productName: "Tonka & Oud",
       description:
         "This is a deep, warm smell that combines tonka and leather with oud and smoke. It has light spicy notes, too, and a base of amber. This fragrance might remind you of a campfire on a desert evening.",
-      image: "../../../server/src/seeds/images/Hot_Apple_Pie.png",
+      image: "/public/images/Tonka&Oud.jpg",
       price: 12.99,
       quantity: 10,
     },
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
       productName: "Frasier Fir",
       description:
         "The gorgeous design on this candle and the fresh, woodsy scent of Frasier Fir bring memories of Christmas tree farms and snow flurries",
-      image: "./images/Frasier_Fir.jpg",
+      image: "/public/images/Frasier_Fir.jpg",
       price: 10.99,
       quantity: 10,
     },
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
       productName: "Vanilla Eggnog",
       description:
         "Heavy on amaretto and rum, this creamy scent has an added dash of vanilla, butter, and sugar for a rich and delicious gourmand candle.",
-      image: "./images/Vanilla_Eggnog.jpg",
+      image: "/public/images/Vanilla_Eggnog.jpg",
       price: 15.99,
       quantity: 10,
     },
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
       productName: "Peppermint Mocha",
       description:
         "This candle carries a warm, subtle and soft scent reminiscent of a vanilla latte, milk chocolate and Peppermint Patties.",
-      image: "./images/peppermint_mocha.png",
+      image: "/public/images/peppermint_mocha.png",
       price: 9.99,
       quantity: 10,
     },
