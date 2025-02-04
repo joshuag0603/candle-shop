@@ -6,7 +6,7 @@ import { productInfo } from "../interface/ProductData";
 import { contactInfo } from "../interface/contactInfo";
 
 const Home: React.FC = () => {
-  const products: ProductInfo[] = [
+  const products: productInfo[] = [
     {
       id: "1",
       productName: "Peppermint",
