@@ -26,9 +26,10 @@ const Setting: React.FC = () => {
     return (
         <>
             <NavBar />
+            <h2>Update Your Information</h2>
             <UserSetting user={user} onSave={handleSave} />
             <Contact contact={contact} />
-            <h2>Update Your Information</h2>
+            
         </>
     );
 };

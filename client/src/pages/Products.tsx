@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { retrieveProduct } from "../api/productAPI.js"
 import type { productInfo } from "../interface/ProductData.js";
 import CandleCards from "../components/candlecards.js";
+import NavBar from "../components/navbar.js";
 
 const ProductsPage = () => {
 
@@ -20,6 +21,7 @@ const ProductsPage = () => {
 
     return (
         <>
+        <NavBar/>
         <CandleCards candles={products} />
         </>
     );

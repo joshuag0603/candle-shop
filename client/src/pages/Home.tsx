@@ -4,6 +4,7 @@ import PictureAndQuote from "../components/PictureQuote.js";
 // import Contact from "../components/contact.js";
 import { productInfo } from "../interface/ProductData.js";
 // import { contactInfo } from "../interface/contactInfo.js";
+import { Image } from 'semantic-ui-react'
 
 const Home: React.FC = () => {
   const products: productInfo[] = [
@@ -12,7 +13,7 @@ const Home: React.FC = () => {
       productName: "Tonka & Oud",
       description:
         "This is a deep, warm smell that combines tonka and leather with oud and smoke. It has light spicy notes, too, and a base of amber. This fragrance might remind you of a campfire on a desert evening.",
-      image: "./images/Tonka&Oud.jpg",
+      image: "../../../server/src/seeds/images/Hot_Apple_Pie.png",
       price: 12.99,
       quantity: 10,
     },
@@ -60,7 +61,7 @@ const Home: React.FC = () => {
         {products.map((product) => (
           <li key={product.id}>
             <h3>{product.productName}</h3>
-            <img src={product.image} alt={product.productName} />
+            <Image src={product.image} alt={product.productName} />
             <p>{product.description}</p>
             <p>Price: ${product.price.toFixed(2)}</p>
             <p>Stock: {product.quantity}</p>
