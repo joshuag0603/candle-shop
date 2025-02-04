@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import type { productInfo } from "../interface/ProductData";
+import type { productInfo } from "../interface/ProductData.js";
 import CandleCard from "../components/candlecard.js";
-import { retrieveCartItems } from "../api/cartAPI";
+import { retrieveCartItems } from "../api/cartAPI.js";
 
 const CandleCartItem = () => {
     const [products, setProducts] = useState<productInfo | null>(null);

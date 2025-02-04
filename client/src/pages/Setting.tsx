@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import UserSetting from "../components/setting";
-import NavBar from "../components/navbar";
-import Contact from "../components/contact";
-import { UserLogin } from "../interface/UserLogin";
-import { contactInfo } from "../interface/contactInfo";
+import UserSetting from "../components/setting.js";
+import NavBar from "../components/navbar.js";
+import Contact from "../components/contact.js";
+import { UserLogin } from "../interface/UserLogin.js";
+import { contactInfo } from "../interface/contactInfo.js";
 
 const Setting: React.FC = () => {
     const [user, setUser] = useState<UserLogin>({
