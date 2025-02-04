@@ -1,36 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// App.tsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from '../src/components/navbar'; // or adjust the path as needed
 
-import './App.css'
+const Home: React.FC = () => <div><h1>Home Page</h1></div>;
+const Products: React.FC = () => <div><h1>Products Page</h1></div>;
+const Settings: React.FC = () => <div><h1>Settings</h1></div>;
+const Cart: React.FC = () => <div><h1>Cart</h1></div>;
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/products" component={Products} />
+        {/* Replace or add correct routes for About and Contact if they exist */}
+        {/* <Route path="/about" component={About} /> */}
+        {/* <Route path="/contact" component={Contact} /> */}
+      </Switch>
+    </Router>
+  );
+};
 
-export default App
+export default App;
+

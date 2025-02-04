@@ -5,6 +5,7 @@ import CandleCartItem from './pages/Cart';
 import Home from './pages/Home';
 import ProductsPage from './pages/Products';
 import Setting from './pages/Setting';
+import 'semantic-ui-css/semantic.min.css'
 
 const router = createBrowserRouter([
   {
