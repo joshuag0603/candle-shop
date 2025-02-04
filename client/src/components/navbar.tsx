@@ -7,16 +7,16 @@ const NavBar: React.FC = () => {
     <Menu fixed="top" inverted>
       <Container>
         <Menu.Item header>Candle Shop</Menu.Item>
-        <Menu.Item as={Link} to="../pages/Home.tsx">
+        <Menu.Item as={Link} to="../">
           Home
         </Menu.Item>
-        <Menu.Item as={Link} to="../pages/Products.tsx">
+        <Menu.Item as={Link} to="../products">
           Products
         </Menu.Item>
-        <Menu.Item as={Link} to="../pages/Setting.tsx">
+        <Menu.Item as={Link} to="../settings">
           Settings
         </Menu.Item>
-        <Menu.Item as={Link} to="../pages/Cart.tsx">
+        <Menu.Item as={Link} to="../cart">
           Cart
         </Menu.Item>
       </Container>
