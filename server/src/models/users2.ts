@@ -47,9 +47,6 @@ export function UserFactory(sequelize: Sequelize) {
             address: {
               type: DataTypes.STRING,
               allowNull: false,
-              validate: {
-                  isAlphanumeric: true,
-              }
             },
           },
           {

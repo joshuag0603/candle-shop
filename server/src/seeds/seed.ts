@@ -1,16 +1,23 @@
 import { User, Product } from '../models/index.js';
 
-import productSeedData from './productSeedData.json';
-import userSeedData from './userSeedData.json';
+import productSeedData from './productSeedData.json' with {type: 'json'};
+import userSeedData from './userSeedData.json' with {type: 'json'};
 
 export const seedDatabase = async () => {
-    await Product.bulkCreate(productSeedData, {
-        validate:true,
-    });
+    try{
+        // console.log("product data:", productSeedData)
 
-    await User.bulkCreate(userSeedData, {
-        validate:true,
-    });
+        await Product.bulkCreate(productSeedData, {
+            validate:true,
+        });
 
-    console.log('\n----- PRODUCTS AND USERS SEEDED -----\n');
-}
+        await User.bulkCreate(userSeedData, {
+            validate:true,
+        });
+    
+        console.log('\n----- PRODUCTS AND USERS SEEDED -----\n');
+
+    }catch(error){
+        console.log(error)
+     };
+};

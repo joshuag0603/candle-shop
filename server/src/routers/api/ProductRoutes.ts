@@ -1,16 +1,17 @@
-import {Router, Request, Response} from 'express';
-import {Product} from '../../models/products';
+import express from "express";
+import type{ Request, Response} from 'express';
+import {Product} from '../../models/index.js';
 
-const router =Router();
+const router = express.Router();
 
 //Get retrieve all products from db
 
 router.get('/', async (_req: Request, res: Response) => {
 try {
     const products = await Product.findAll();
-    res.json (products);
-}
-catch (error) {
+    res.json(products);
+
+}catch (error) {
     console.error('Error fetching products',error);
     res.status(500).json({error:'Server error fetching products'});
 }

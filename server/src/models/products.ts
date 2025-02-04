@@ -7,6 +7,7 @@ export class Product extends Model<InferAttributes<Product>, InferCreationAttrib
     declare description: string;
     declare price: number;
     declare quantity?: number;
+    declare image?: string;
 }
 
 export function ProductFactory(sequelize: Sequelize) {
@@ -33,6 +34,10 @@ export function ProductFactory(sequelize: Sequelize) {
               type: DataTypes.INTEGER,
               allowNull: true,
               defaultValue: 0,
+            },
+            image: {
+              type: DataTypes.STRING,
+              allowNull: true,
             },
           },
           {
