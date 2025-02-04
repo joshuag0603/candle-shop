@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import NavBar from "../components/navbar";
+import navBar from "../components/navbar";
 import PictureAndQuote from "../components/PictureQuote";
 import Contact from "../components/contact";
-import { ProductInfo } from "../interface/Products";
+import { productInfo } from "../interface/Products";
 import { contactInfo } from "../interface/contactInfo";
 
 const Home: React.FC = () => {
