@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import { Button, Input } from 'semantic-ui-react';
 
 interface AddToCartProps {
-  userId: number;            
-  productName: string;       
+  cartId: number;            
+  productId: number;      
   onAdded?: (message: string) => void; 
 }
 
-const AddToCart: React.FC<AddToCartProps> = ({ productName, onAdded }) => {
+const AddToCart: React.FC<AddToCartProps> = ({ cartId, productId, onAdded }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
-  const userId =1;
+  //const userId =1;
 
   const handleAdd = async () => {
     setLoading(true);
     try {
-      const response = await fetch("/api/carts/cartItems/1", {
+      const response = await fetch("/api/carts/cartItems", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productName, quantity }),
+        body: JSON.stringify({ cartId, productId }),
       });
       if (!response.ok) {
         console.error('Failed to add product to cart');
