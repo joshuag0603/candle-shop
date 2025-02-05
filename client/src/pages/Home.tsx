@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "../components/navbar";
-import PictureAndQuote from "../components/PictureQuote";
 import { productInfo } from "../interface/ProductData";
 import { Container, Header, Card, Image } from "semantic-ui-react";
 import AddToCart from "../components/AddToCart";
@@ -63,7 +62,7 @@ const Home: React.FC = () => {
                 <Card.Description>{product.description}</Card.Description>
               </Card.Content>
               <Card.Content extra>
-              <AddToCart userId={1} productName={product.productName} />
+              <AddToCart productName={product.productName} />
               </Card.Content>
             </Card>
           ))}

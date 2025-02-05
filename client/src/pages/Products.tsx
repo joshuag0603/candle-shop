@@ -54,7 +54,7 @@ const ProductsPage: React.FC = () => {
                   <Card.Description>{product.description}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <AddToCart userId={1} productName={product.productName} />
+                    <AddToCart productName={product.productName} />
                 </Card.Content>
               </Card>
             ))}
