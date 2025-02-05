@@ -1,9 +1,9 @@
-// src/pages/ProductsPage.tsx
 import React, { useState, useEffect } from "react";
 import { Container, Header, Card, Image, Loader } from "semantic-ui-react";
 import { retrieveProduct } from "../api/productAPI.js";
 import type { productInfo } from "../interface/ProductData.js";
 import NavBar from "../components/navbar";
+import AddToCart from '../components/AddToCart.js'
 
 const ProductsPage: React.FC = () => {
   const [products, setProducts] = useState<productInfo[]>([]);
@@ -54,7 +54,7 @@ const ProductsPage: React.FC = () => {
                   <Card.Description>{product.description}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <span>Stock: {product.quantity}</span>
+                    <AddToCart userId={1} productName={product.productName} />
                 </Card.Content>
               </Card>
             ))}
