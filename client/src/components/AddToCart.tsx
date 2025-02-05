@@ -10,12 +10,12 @@ interface AddToCartProps {
 const AddToCart: React.FC<AddToCartProps> = ({ productName, onAdded }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
-//   const userId =1;
+  const userId =1;
 
   const handleAdd = async () => {
     setLoading(true);
     try {
-      const response = await fetch("/api/carts", {
+      const response = await fetch("/api/carts/cartItems/1", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ productName, quantity }),
