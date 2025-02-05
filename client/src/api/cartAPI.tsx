@@ -3,7 +3,7 @@ import { productInfo } from "../interface/ProductData";
 
 const retrieveCartItems = async () => {
     try {
-        const response = await fetch('/api/cartItem', {
+        const response = await fetch('/api/carts/cartItem', {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -23,7 +23,7 @@ const retrieveCartItems = async () => {
 
 const productCartItem = async (body: productInfo ) => {
     try {
-        const response = await fetch('/api/cartItem', {
+        const response = await fetch('/api/carts/cartItem', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const productCartItem = async (body: productInfo ) => {
 
 const addCartItems = async (body: cartItem) => {
     try {
-        const response = await fetch('/api/cartItem', {
+        const response = await fetch('/api/carts/cartItem', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -67,4 +67,23 @@ const addCartItems = async (body: cartItem) => {
     }
 }
 
-export { retrieveCartItems, addCartItems, productCartItem};
+const deleteCartItem = async (cartItemId: number | string): Promise<boolean> => {
+    try {
+      const response = await fetch(`/api/carts/cartItem/${cartItemId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Invalid API response, check network tab!');
+      }
+      return true;
+    } catch (err) {
+      console.log('Error deleting cart item:', err);
+      return Promise.reject('Could not delete cart item');
+    }
+  };
+
+
+export { retrieveCartItems, addCartItems, productCartItem, deleteCartItem};
