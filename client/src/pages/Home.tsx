@@ -1,4 +1,3 @@
-// src/pages/Home.tsx
 import React from "react";
 import NavBar from "../components/navbar";
 import PictureAndQuote from "../components/PictureQuote";
