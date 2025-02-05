@@ -3,6 +3,7 @@ import NavBar from "../components/navbar";
 import PictureAndQuote from "../components/PictureQuote";
 import { productInfo } from "../interface/ProductData";
 import { Container, Header, Card, Image } from "semantic-ui-react";
+import AddToCart from "../components/AddToCart";
 
 const Home: React.FC = () => {
   const products: productInfo[] = [
@@ -26,15 +27,6 @@ const Home: React.FC = () => {
     },
     {
       id: "3",
-      productName: "Vanilla Eggnog",
-      description:
-        "Heavy on amaretto and rum, this creamy scent has an added dash of vanilla, butter, and sugar for a rich and delicious gourmand candle.",
-      image: "/images/Vanilla_Eggnog.jpg",
-      price: 15.99,
-      quantity: 10,
-    },
-    {
-      id: "4",
       productName: "Peppermint Mocha",
       description:
         "This candle carries a warm, subtle and soft scent reminiscent of a vanilla latte, milk chocolate and Peppermint Patties.",
@@ -52,7 +44,7 @@ const Home: React.FC = () => {
           Welcome to Our Candle Shop
         </Header>
         <Header as="h2" dividing style={{ marginTop: "2em" }}>
-          Our Products
+          Our Best Sellers 
         </Header>
         <Card.Group itemsPerRow={3} stackable>
           {products.map((product) => (
@@ -71,7 +63,7 @@ const Home: React.FC = () => {
                 <Card.Description>{product.description}</Card.Description>
               </Card.Content>
               <Card.Content extra>
-                <span>Stock: {product.quantity}</span>
+              <AddToCart userId={1} productName={product.productName} />
               </Card.Content>
             </Card>
           ))}
