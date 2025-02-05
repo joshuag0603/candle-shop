@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Header, Card, Loader, Image } from "semantic-ui-react";
 import type { productInfo } from "../interface/ProductData";
 import { retrieveCartItems } from "../api/cartAPI";
+import NavBar from "../components/navbar";
 
 interface GroupedCartItem extends productInfo {
   totalQuantity: number;
@@ -52,6 +53,8 @@ const CartPage: React.FC = () => {
   const placeholderImage = "https://via.placeholder.com/150";
 
   return (
+    <>
+    <NavBar />
     <Container style={{ marginTop: "7em" }}>
       <Header as="h1" textAlign="center" style={{ marginBottom: "2em" }}>
         Your Cart
@@ -69,7 +72,7 @@ const CartPage: React.FC = () => {
           <Card.Group itemsPerRow={3} stackable>
             {groupedCartItems.map((item, index) => {
               const priceNumber = Number(item.price) || 0;
-              const imageSrc = item.image || item.imageUrl || placeholderImage;
+              const imageSrc = item.image || placeholderImage;
               return (
                 <Card key={`${item.productName}-${index}`}>
                   <Image
@@ -97,6 +100,7 @@ const CartPage: React.FC = () => {
         </>
       )}
     </Container>
+    </>
   );
 };
 
