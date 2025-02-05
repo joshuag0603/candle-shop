@@ -3,7 +3,7 @@ import { productInfo } from "../interface/ProductData";
 
 const retrieveCartItems = async () => {
     try {
-        const response = await fetch('/api/carts/cartItem', {
+        const response = await fetch('/api/carts/cartItems', {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -23,7 +23,7 @@ const retrieveCartItems = async () => {
 
 const productCartItem = async (body: productInfo ) => {
     try {
-        const response = await fetch('/api/carts/cartItem', {
+        const response = await fetch('/api/carts/cartItems', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const productCartItem = async (body: productInfo ) => {
 
 const addCartItems = async (body: cartItem) => {
     try {
-        const response = await fetch('/api/carts/cartItem', {
+        const response = await fetch('/api/carts/cartItems', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const addCartItems = async (body: cartItem) => {
 
 const deleteCartItem = async (cartItemId: number | string): Promise<boolean> => {
     try {
-      const response = await fetch(`/api/carts/cartItem/${cartItemId}`, {
+      const response = await fetch(`/api/carts/cartItems/${cartItemId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
