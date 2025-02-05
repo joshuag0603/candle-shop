@@ -4,17 +4,18 @@ import { Button, Input } from 'semantic-ui-react';
 interface AddToCartProps {
   userId: number;            
   productName: string;       
-  onAdded?: (message: string) => void;
+  onAdded?: (message: string) => void; 
 }
 
-const AddToCart: React.FC<AddToCartProps> = ({ userId, productName, onAdded }) => {
+const AddToCart: React.FC<AddToCartProps> = ({ productName, onAdded }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
+//   const userId =1;
 
   const handleAdd = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/cart/${userId}`, {
+      const response = await fetch("/api/carts", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ productName, quantity }),
