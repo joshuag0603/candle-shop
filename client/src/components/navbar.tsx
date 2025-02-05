@@ -13,9 +13,6 @@ const NavBar: React.FC = () => {
         <Menu.Item as={Link} to="../products">
           Products
         </Menu.Item>
-        <Menu.Item as={Link} to="../settings">
-          Settings
-        </Menu.Item>
         <Menu.Item as={Link} to="../cart">
           Cart
         </Menu.Item>
