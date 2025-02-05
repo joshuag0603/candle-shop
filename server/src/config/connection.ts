@@ -3,7 +3,7 @@ dotenv.config();
 
 import { Sequelize } from 'sequelize';
 
-let sequelize;
+let sequelize: Sequelize;
 
 if (process.env.DB_URL) {
     sequelize = new Sequelize(process.env.DB_URL);
