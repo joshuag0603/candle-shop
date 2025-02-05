@@ -4,6 +4,17 @@ import { CartItem } from '../../models/cartItem.js'; // Add Cartitem model
 
 const router = Router();
 
+router.get('/cartItems', async (_req: Request, res: Response) =>{
+  try {
+    const cartItems = await CartItem.findAll();
+    res.json(cartItems);
+
+}catch (error) {
+    console.error('Error fetching cart items',error);
+    res.status(500).json({error:'Server error fetching cart items'});
+}
+});
+
 router.get('/', async (_req: Request, res: Response) => {
   try {
       const carts = await Cart.findAll();
