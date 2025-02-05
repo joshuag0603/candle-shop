@@ -5,9 +5,8 @@ import { Cart } from './cart.js';
 
 export class CartItem extends Model<InferAttributes<CartItem>, InferCreationAttributes<CartItem>> {
     declare id: CreationOptional<number>;
-    declare quantity: number;
+    declare quantity?: number;
     declare productId: ForeignKey<Product['id']>;
-    declare productName: ForeignKey<Product['productName']>;
     declare cartId: ForeignKey<Cart['id']>;
 }
 
@@ -22,6 +21,7 @@ export class CartItem extends Model<InferAttributes<CartItem>, InferCreationAttr
             quantity: {  
                 type: DataTypes.INTEGER,
                 allowNull: false,
+                defaultValue: 1
             },
         },
         {

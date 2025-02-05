@@ -16,7 +16,7 @@ User.hasMany(Cart, {
 
 Cart.hasMany(CartItem, {
     onDelete: 'CASCADE',
-    as: 'products'
+    as: 'cartItems'
 });
 
 CartItem.hasMany(Product, {
@@ -29,6 +29,7 @@ Cart.belongsTo(User, {
 
 CartItem.belongsTo(Cart, {
     onDelete: 'CASCADE',
+    as: 'cart',
 });
 
 Product.belongsTo(CartItem, {
